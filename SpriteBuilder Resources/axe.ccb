@@ -40,6 +40,12 @@
 			<key>position</key>
 			<real>114</real>
 		</dict>
+		<dict>
+			<key>orientation</key>
+			<integer>0</integer>
+			<key>position</key>
+			<real>89</real>
+		</dict>
 	</array>
 	<key>jsControlled</key>
 	<false/>
@@ -50,13 +56,67 @@
 		<key>children</key>
 		<array/>
 		<key>customClass</key>
-		<string></string>
+		<string>Axe</string>
 		<key>displayName</key>
 		<string>CCSprite</string>
 		<key>memberVarAssignmentName</key>
 		<string></string>
 		<key>memberVarAssignmentType</key>
 		<integer>0</integer>
+		<key>physicsBody</key>
+		<dict>
+			<key>affectedByGravity</key>
+			<true/>
+			<key>allowsRotation</key>
+			<true/>
+			<key>bodyShape</key>
+			<integer>0</integer>
+			<key>cornerRadius</key>
+			<real>0.0</real>
+			<key>density</key>
+			<real>1</real>
+			<key>dynamic</key>
+			<true/>
+			<key>elasticity</key>
+			<real>0.30000001192092896</real>
+			<key>friction</key>
+			<real>0.30000001192092896</real>
+			<key>points</key>
+			<array>
+				<array>
+					<real>-0.11634776741266251</real>
+					<real>8.5891132354736328</real>
+				</array>
+				<array>
+					<real>0.0</real>
+					<real>0.0</real>
+				</array>
+				<array>
+					<real>8.8487138748168945</real>
+					<real>0.12901504337787628</real>
+				</array>
+				<array>
+					<real>28.013772964477539</real>
+					<real>11.248674392700195</real>
+				</array>
+				<array>
+					<real>38.000534057617188</real>
+					<real>18.256675720214844</real>
+				</array>
+				<array>
+					<real>39.521965026855469</real>
+					<real>32.591876983642578</real>
+				</array>
+				<array>
+					<real>27.697189331054688</real>
+					<real>38.562480926513672</real>
+				</array>
+				<array>
+					<real>15.304656982421875</real>
+					<real>37.021427154541016</real>
+				</array>
+			</array>
+		</dict>
 		<key>properties</key>
 		<array>
 			<dict>
@@ -88,7 +148,7 @@
 				<string>Point</string>
 				<key>value</key>
 				<array>
-					<real>1</real>
+					<real>0.5</real>
 					<real>0.5</real>
 				</array>
 			</dict>
@@ -113,7 +173,7 @@
 				<key>value</key>
 				<array>
 					<string></string>
-					<string>assets/hero.png</string>
+					<string>assets/axe.png</string>
 				</array>
 			</dict>
 			<dict>

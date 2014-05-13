@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		74023B4B1921022D00B452CA /* hero.m in Sources */ = {isa = PBXBuildFile; fileRef = 74023B4A1921022D00B452CA /* hero.m */; };
 		74023B4E1921046900B452CA /* Gameplay.m in Sources */ = {isa = PBXBuildFile; fileRef = 74023B4D1921046900B452CA /* Gameplay.m */; };
+		7460086719221D0A00200EB6 /* Axe.m in Sources */ = {isa = PBXBuildFile; fileRef = 7460086619221D0A00200EB6 /* Axe.m */; };
+		7460086B1922957600200EB6 /* arrow.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 746008691922957600200EB6 /* arrow.mp3 */; };
+		7460086C1922957600200EB6 /* hatchet.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 7460086A1922957600200EB6 /* hatchet.mp3 */; };
 		B71F5911188484E7003F4D28 /* iPad-old.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5907188484E7003F4D28 /* iPad-old.png */; };
 		B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5908188484E7003F4D28 /* iPad-old@2x.png */; };
 		B71F5913188484E7003F4D28 /* iPad.png in Resources */ = {isa = PBXBuildFile; fileRef = B71F5909188484E7003F4D28 /* iPad.png */; };
@@ -61,6 +64,11 @@
 		74023B4A1921022D00B452CA /* hero.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = hero.m; path = Source/hero.m; sourceTree = "<group>"; };
 		74023B4C1921046900B452CA /* Gameplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Gameplay.h; path = Source/Gameplay.h; sourceTree = "<group>"; };
 		74023B4D1921046900B452CA /* Gameplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Gameplay.m; path = Source/Gameplay.m; sourceTree = "<group>"; };
+		74600863192206E900200EB6 /* constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = constants.h; sourceTree = "<group>"; };
+		7460086519221D0A00200EB6 /* Axe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Axe.h; path = Source/Axe.h; sourceTree = "<group>"; };
+		7460086619221D0A00200EB6 /* Axe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Axe.m; path = Source/Axe.m; sourceTree = "<group>"; };
+		746008691922957600200EB6 /* arrow.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = arrow.mp3; sourceTree = "<group>"; };
+		7460086A1922957600200EB6 /* hatchet.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = hatchet.mp3; sourceTree = "<group>"; };
 		B71F5907188484E7003F4D28 /* iPad-old.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old.png"; path = "Icons/iPad-old.png"; sourceTree = "<group>"; };
 		B71F5908188484E7003F4D28 /* iPad-old@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "iPad-old@2x.png"; path = "Icons/iPad-old@2x.png"; sourceTree = "<group>"; };
 		B71F5909188484E7003F4D28 /* iPad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = iPad.png; path = Icons/iPad.png; sourceTree = "<group>"; };
@@ -117,6 +125,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		746008681922957600200EB6 /* sounds */ = {
+			isa = PBXGroup;
+			children = (
+				746008691922957600200EB6 /* arrow.mp3 */,
+				7460086A1922957600200EB6 /* hatchet.mp3 */,
+			);
+			path = sounds;
+			sourceTree = "<group>";
+		};
 		9222E2B918734FF800A246C7 /* libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,10 +149,13 @@
 				74023B4A1921022D00B452CA /* hero.m */,
 				74023B4C1921046900B452CA /* Gameplay.h */,
 				74023B4D1921046900B452CA /* Gameplay.m */,
+				7460086519221D0A00200EB6 /* Axe.h */,
+				7460086619221D0A00200EB6 /* Axe.m */,
 				B737893D1807617C0076A88C /* AppDelegate.h */,
 				B737893E1807617C0076A88C /* AppDelegate.m */,
 				B7378992180767190076A88C /* MainScene.h */,
 				B7378993180767190076A88C /* MainScene.m */,
+				74600863192206E900200EB6 /* constants.h */,
 			);
 			name = Source;
 			sourceTree = "<group>";
@@ -209,6 +229,7 @@
 		B77F1B4617B978D7009739AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				746008681922957600200EB6 /* sounds */,
 				B73789911807667A0076A88C /* Icons */,
 				B737893A180761570076A88C /* Published-iOS */,
 			);
@@ -305,6 +326,7 @@
 			files = (
 				B71F5919188484E7003F4D28 /* Settings.png in Resources */,
 				B7378978180762440076A88C /* Default@2x.png in Resources */,
+				7460086B1922957600200EB6 /* arrow.mp3 in Resources */,
 				B71F5914188484E7003F4D28 /* iPad@2x.png in Resources */,
 				B71F5913188484E7003F4D28 /* iPad.png in Resources */,
 				B71F5912188484E7003F4D28 /* iPad-old@2x.png in Resources */,
@@ -312,6 +334,7 @@
 				B737893B180761570076A88C /* Published-iOS in Resources */,
 				B71F591A188484E7003F4D28 /* Settings@2x.png in Resources */,
 				B7378976180762440076A88C /* Default-Landscape~ipad.png in Resources */,
+				7460086C1922957600200EB6 /* hatchet.mp3 in Resources */,
 				B71F5915188484E7003F4D28 /* iPhone-old.png in Resources */,
 				B71F5917188484E7003F4D28 /* iPhone.png in Resources */,
 				B7378975180762440076A88C /* Default-568h@2x.png in Resources */,
@@ -328,6 +351,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7460086719221D0A00200EB6 /* Axe.m in Sources */,
 				B737893F1807617C0076A88C /* AppDelegate.m in Sources */,
 				74023B4E1921046900B452CA /* Gameplay.m in Sources */,
 				B7378994180767190076A88C /* MainScene.m in Sources */,
