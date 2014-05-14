@@ -32,8 +32,9 @@
     NSInteger gamePoints;
     BOOL isThrowing;
     BOOL isJumping;
+    BOOL isOnGround;
     OALSimpleAudio *audio;
-    
+    float jumpImpulse;
 }
 
 -(id)init{
@@ -44,6 +45,7 @@
         gamePoints = 0;
         isThrowing = FALSE;
         isJumping = FALSE;
+        jumpImpulse = 120.f;
     }
     return self;
 }
@@ -51,6 +53,7 @@
 -(BOOL)ccPhysicsCollisionBegin:(CCPhysicsCollisionPair *)pair hero:(CCNode *)_hero ground:(CCNode *)_ground{
     CCLOG(@"landing");
     isJumping = FALSE;
+    isOnGround = TRUE;
     return TRUE;
 }
 -(void)didLoadFromCCB{
@@ -64,6 +67,13 @@
 }
 
 -(void)update:(CCTime)delta{
+    
+    if(_hero.position.y > 160){
+        isJumping = false;
+    }
+    if(isJumping){
+        [_hero.physicsBody applyImpulse:ccp(0,jumpImpulse)];
+    }
     if(_axe.position.x>_screenWidth){
         isThrowing = FALSE;
         [_axe removeFromParentAndCleanup:TRUE];
@@ -87,7 +97,8 @@
 -(void) touchBegan: (UITouch *)touch withEvent:(UIEvent *)event{
     CGPoint touchLocation = [touch locationInNode: self];
     if (CGRectContainsPoint([_btnUp boundingBox], touchLocation)){
-        [self jump];
+        isJumping = TRUE;
+        isOnGround = FALSE;
     }
     if (CGRectContainsPoint([_btnRight boundingBox], touchLocation)){
         [self launchAxe];
@@ -99,13 +110,21 @@
         CCLOG(@"unik");
     }
 }
-
--(void) jump{
-    isJumping = TRUE;
-    [_hero.physicsBody applyImpulse:ccp(0,1600.f)];
+-(void) touchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
+    CGPoint touchLocation = [touch locationInNode: self];
+    if (CGRectContainsPoint([_btnUp boundingBox], touchLocation)){
+        isJumping = FALSE;
+    }
 }
+-(void) touchCancelled:(UITouch *)touch withEvent:(UIEvent *)event {
+    CGPoint touchLocation = [touch locationInNode: self];
+    if (CGRectContainsPoint([_btnUp boundingBox], touchLocation)){
+        isJumping = FALSE;
+    }
+}
+
 -(void) launchAxe{
-    if(!isThrowing && !isJumping){
+    if(!isThrowing && isOnGround){
         gamePoints++;
         _scoreLabel.string = [NSString stringWithFormat:@"%ld", (long)gamePoints];
         isThrowing = TRUE;
