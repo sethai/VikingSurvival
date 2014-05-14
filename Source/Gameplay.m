@@ -8,6 +8,7 @@
 
 #import "Gameplay.h"
 #import "constants.h"
+#include <stdlib.h>
 
 @implementation Gameplay {
     CCSprite *_hero;
@@ -35,6 +36,10 @@
     BOOL isOnGround;
     OALSimpleAudio *audio;
     float jumpImpulse;
+    CCTime lastObstacleTime;
+    CCTime timeBetweenObstacle;
+    int randomizer;
+    int randSign;
 }
 
 -(id)init{
@@ -46,6 +51,9 @@
         isThrowing = FALSE;
         isJumping = FALSE;
         jumpImpulse = 120.f;
+        lastObstacleTime=0;
+        timeBetweenObstacle=5;
+        randomizer = 0;
     }
     return self;
 }
@@ -67,7 +75,7 @@
 }
 
 -(void)update:(CCTime)delta{
-    
+    [self generateObstacle:delta];
     if(_hero.position.y > 160){
         isJumping = false;
     }
@@ -93,7 +101,18 @@
         }
     }
 }
-
+-(void) generateObstacle: (CCTime) time{
+    lastObstacleTime += time;
+    randSign = 0;
+    randSign = arc4random()%2;
+    if(lastObstacleTime>timeBetweenObstacle+randomizer){
+        randomizer = rand()%5;
+        if(randSign == 0){
+            randomizer = -randomizer;
+        }
+        lastObstacleTime = 0;
+    }
+}
 -(void) touchBegan: (UITouch *)touch withEvent:(UIEvent *)event{
     CGPoint touchLocation = [touch locationInNode: self];
     if (CGRectContainsPoint([_btnUp boundingBox], touchLocation)){
@@ -129,7 +148,7 @@
         _scoreLabel.string = [NSString stringWithFormat:@"%ld", (long)gamePoints];
         isThrowing = TRUE;
         _axe = [CCBReader load:@"axe"];
-        _axe.position = ccpAdd(_hero.position, ccp(10,5));
+        _axe.position = ccpAdd(_hero.position, ccp(20,5));
         [_physicsNode addChild:_axe];
         CGPoint launchDirection = ccp(8,5);
         CGPoint force=ccpMult(launchDirection, 1500);
